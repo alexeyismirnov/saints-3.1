@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
-import 'package:flutter_toolkit/flutter_toolkit.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'globals.dart';
 import 'day_view.dart';
@@ -32,6 +32,18 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   }
 
   @override
+  void didChangeDependencies() async {
+    super.didChangeDependencies();
+
+    if (rateMyApp.shouldOpenDialog) {
+      Future.delayed(
+          Duration.zero,
+          () =>
+              rateMyApp.showRateDialog(context, title: "title".tr(), message: "please_rate".tr()));
+    }
+  }
+
+  @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
 
@@ -39,7 +51,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       case AppLifecycleState.resumed:
         final dt = DateTime.now();
 
-        if (date != DateTime(dt.year, dt.month, dt.day)) {
+        if (date != DateTime.utc(dt.year, dt.month, dt.day)) {
           setDate(dt);
         }
 

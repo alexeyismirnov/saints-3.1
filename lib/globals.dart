@@ -9,11 +9,9 @@ class DateChangedNotification extends Notification {
   DateChangedNotification(this.newDate) : super();
 }
 
-
 extension ConfigParamExt on ConfigParam {
   static var favs;
   static var search;
-  static var ver_5_0;
 }
 
 RateMyApp rateMyApp = RateMyApp(
@@ -23,4 +21,3 @@ RateMyApp rateMyApp = RateMyApp(
   remindDays: 5,
   remindLaunches: 5,
 );
-

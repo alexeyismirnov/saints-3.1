@@ -37,8 +37,8 @@ class ChurchCalendar {
     pascha = paschaDay(year);
     greatLentStart = pascha - 48.days;
 
-    leapStart = DateTime(year, 2, 29);
-    leapEnd = DateTime(year, 3, 13);
+    leapStart = DateTime.utc(year, 2, 29);
+    leapEnd = DateTime.utc(year, 3, 13);
     isLeapYear = (year % 400) == 0 || ((year % 4 == 0) && (year % 100 != 0));
 
     initDays();
@@ -68,18 +68,18 @@ class ChurchCalendar {
       ChurchDay(pascha + 56.days, "theotokosSevenArrows", id: 100106),
       ChurchDay(pascha + 61.days, "theotokosTabynsk", id: 100108),
       ChurchDay(pascha + 63.days, "allRussianSaints", id: 100111),
-      ChurchDay(nearestSunday(DateTime(year, 2, 7)), "newMartyrsOfRussia", id: 100109),
-      ChurchDay(nearestSunday(DateTime(year, 7, 29)), "holyFathersSixCouncils", id: 100110),
-      ChurchDay(nearestSunday(DateTime(year, 10, 24)), "holyFathersSeventhCouncil", id: 100112)
+      ChurchDay(nearestSunday(DateTime.utc(year, 2, 7)), "newMartyrsOfRussia", id: 100109),
+      ChurchDay(nearestSunday(DateTime.utc(year, 7, 29)), "holyFathersSixCouncils", id: 100110),
+      ChurchDay(nearestSunday(DateTime.utc(year, 10, 24)), "holyFathersSeventhCouncil", id: 100112)
     ]);
 
-    final nativity = DateTime(year, 1, 7);
+    final nativity = DateTime.utc(year, 1, 7);
 
     if (nativity.weekday != DateTime.sunday) {
       days.add(ChurchDay(nearestSundayBefore(nativity), "sundayBeforeNativity", id: 100005));
     }
 
-    final nativityNextYear = DateTime(year + 1, 1, 7);
+    final nativityNextYear = DateTime.utc(year + 1, 1, 7);
 
     if (nativityNextYear.weekday == DateTime.sunday) {
       days.add(
@@ -90,20 +90,20 @@ class ChurchCalendar {
         id: 100004));
 
     days.addAll([
-      ChurchDay(DateTime(year, 1, 7), "nativityOfGod", type: FeastType.great),
-      ChurchDay(DateTime(year, 1, 19), "theophany", type: FeastType.great),
-      ChurchDay(DateTime(year, 2, 15), "meetingOfLord", type: FeastType.great),
-      ChurchDay(DateTime(year, 4, 7), "annunciation", type: FeastType.great),
-      ChurchDay(DateTime(year, 7, 12), "peterAndPaul", type: FeastType.great),
-      ChurchDay(DateTime(year, 8, 19), "transfiguration", type: FeastType.great),
-      ChurchDay(DateTime(year, 8, 28), "dormition", type: FeastType.great),
-      ChurchDay(DateTime(year, 9, 21), "nativityOfTheotokos", type: FeastType.great),
-      ChurchDay(DateTime(year, 9, 27), "exaltationOfCross", type: FeastType.great),
-      ChurchDay(DateTime(year, 12, 4), "entryIntoTemple", type: FeastType.great),
-      ChurchDay(DateTime(year, 1, 14), "circumcision", type: FeastType.great),
-      ChurchDay(DateTime(year, 10, 14), "veilOfTheotokos", type: FeastType.great),
-      ChurchDay(DateTime(year, 7, 7), "nativityOfJohn", type: FeastType.great),
-      ChurchDay(DateTime(year, 9, 11), "beheadingOfJohn", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 1, 7), "nativityOfGod", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 1, 19), "theophany", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 2, 15), "meetingOfLord", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 4, 7), "annunciation", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 7, 12), "peterAndPaul", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 8, 19), "transfiguration", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 8, 28), "dormition", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 9, 21), "nativityOfTheotokos", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 9, 27), "exaltationOfCross", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 12, 4), "entryIntoTemple", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 1, 14), "circumcision", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 10, 14), "veilOfTheotokos", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 7, 7), "nativityOfJohn", type: FeastType.great),
+      ChurchDay(DateTime.utc(year, 9, 11), "beheadingOfJohn", type: FeastType.great),
     ]);
   }
 
@@ -118,7 +118,7 @@ extension ChurchCalendarFunc on ChurchCalendar {
     final a = (19 * (year % 19) + 15) % 30;
     final b = (2 * (year % 4) + 4 * (year % 7) + 6 * a + 6) % 7;
 
-    return ((a + b > 10) ? DateTime(year, 4, a + b - 9) : DateTime(year, 3, 22 + a + b)) + 13.days;
+    return ((a + b > 10) ? DateTime.utc(year, 4, a + b - 9) : DateTime.utc(year, 3, 22 + a + b)) + 13.days;
   }
 
   DateTime nearestSundayBefore(DateTime d) => d - d.weekday.days;

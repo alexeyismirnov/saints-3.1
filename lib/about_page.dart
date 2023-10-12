@@ -15,17 +15,17 @@ class _AboutPageState extends State<AboutPage> {
       Row(mainAxisSize: MainAxisSize.max, children: [
         Expanded(
             child: Text("mobile_apps".tr(),
-                textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline6)),
+                textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleLarge)),
       ]),
       const SizedBox(height: 20),
-      Text("about_us".tr(), style: Theme.of(context).textTheme.subtitle1),
+      Text("about_us".tr(), style: Theme.of(context).textTheme.titleMedium),
       const SizedBox(height: 20),
       RichText(
           text: TextSpan(children: [
-            TextSpan(
-                text: "Православный календарь+\n\n", style: Theme.of(context).textTheme.titleLarge),
-            TextSpan(text: "calendar_app_info".tr(), style: Theme.of(context).textTheme.subtitle1)
-          ])),
+        TextSpan(
+            text: "Православный календарь+\n\n", style: Theme.of(context).textTheme.titleLarge),
+        TextSpan(text: "calendar_app_info".tr(), style: Theme.of(context).textTheme.titleMedium)
+      ])),
       const SizedBox(height: 20),
       SimpleCard(
           title: "calendar_app_install".tr(),
@@ -35,9 +35,9 @@ class _AboutPageState extends State<AboutPage> {
       const SizedBox(height: 20),
       RichText(
           text: TextSpan(children: [
-            TextSpan(text: "Храм в Гонконге\n\n", style: Theme.of(context).textTheme.titleLarge),
-            TextSpan(text: "church_app_info".tr(), style: Theme.of(context).textTheme.subtitle1)
-          ])),
+        TextSpan(text: "Храм в Гонконге\n\n", style: Theme.of(context).textTheme.titleLarge),
+        TextSpan(text: "church_app_info".tr(), style: Theme.of(context).textTheme.titleMedium)
+      ])),
       const SizedBox(height: 20),
       SimpleCard(
           title: "church_app_install".tr(),
@@ -47,10 +47,10 @@ class _AboutPageState extends State<AboutPage> {
       const SizedBox(height: 20),
       RichText(
           text: TextSpan(children: [
-            TextSpan(
-                text: "Библиотека на китайском\n\n", style: Theme.of(context).textTheme.titleLarge),
-            TextSpan(text: "bookshop_app_info".tr(), style: Theme.of(context).textTheme.subtitle1)
-          ])),
+        TextSpan(
+            text: "Библиотека на китайском\n\n", style: Theme.of(context).textTheme.titleLarge),
+        TextSpan(text: "bookshop_app_info".tr(), style: Theme.of(context).textTheme.titleMedium)
+      ])),
       const SizedBox(height: 20),
       SimpleCard(
           title: "bookshop_app_install".tr(),

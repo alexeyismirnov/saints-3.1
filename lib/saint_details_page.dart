@@ -110,7 +110,7 @@ class _SaintDetailPageState extends State<SaintDetailPage> {
     final _textMinHeight = MediaQuery.of(context).size.height - _appBarHeight;
 
     final fontSize = ConfigParam.fontSize.val();
-    final body1 = Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: fontSize);
+    final body1 = Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: fontSize);
     // final String
 
     final mkText =
@@ -134,7 +134,7 @@ class _SaintDetailPageState extends State<SaintDetailPage> {
                           pinned: true,
                           title: _showTitle ? Text(widget.saint.name) : null,
                           actions: [_getActions()],
-                          bottom: controller != null && _showDots
+                          bottom: controller != null && _showDots && controller.length > 1
                               ? PreferredSize(
                                   preferredSize: const Size.fromHeight(48.0),
                                   child: Container(

@@ -10,24 +10,20 @@ class SaintDetail extends StatefulWidget {
   SaintDetail(this.saints, this.index);
 
   @override
-  _SaintDetailState createState() =>  _SaintDetailState();
+  _SaintDetailState createState() => _SaintDetailState();
 }
 
 class _SaintDetailState extends State<SaintDetail> {
   @override
   Widget build(BuildContext context) {
-    if (widget.saints.length == 1) {
-      return Scaffold(body: SaintDetailPage(widget.saints[0]));
-
-    } else {
-      return Scaffold(
-          body: DefaultTabController(
-              initialIndex: widget.index,
-              length: widget.saints.length,
-              child: TabBarView(
-                children:
-                widget.saints.map((Saint s) => SaintDetailPage(s)).toList(),
-              )));
-    }
+    return Scaffold(
+        body: DefaultTabController(
+            initialIndex: widget.index,
+            length: widget.saints.length,
+            child: (widget.saints.length == 1)
+                ? SaintDetailPage(widget.saints[0])
+                : TabBarView(
+                    children: widget.saints.map((Saint s) => SaintDetailPage(s)).toList(),
+                  )));
   }
 }

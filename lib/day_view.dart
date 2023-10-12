@@ -7,7 +7,7 @@ import 'package:launch_review/launch_review.dart';
 
 import 'globals.dart';
 import 'saint_list.dart';
-// import 'month_cell.dart';
+import 'month_cell.dart';
 
 class DayView extends StatefulWidget {
   final DateTime date, dateOld;
@@ -33,7 +33,7 @@ class _DayViewState extends State<DayView> {
                 AppThemeDialog().show(context);
               },
               child:
-              const ListTile(leading: Icon(Icons.color_lens, size: 30.0), title: Text('Фон')))),
+                  const ListTile(leading: Icon(Icons.color_lens, size: 30.0), title: Text('Фон')))),
       PopupMenuItem(
           child: GestureDetector(
               onTap: () {
@@ -84,21 +84,19 @@ class _DayViewState extends State<DayView> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        AutoSizeText(df1.format(currentDate).capitalize(),
-                            textAlign: TextAlign.left,
-                            maxLines: 1,
-                            minFontSize: 5,
-                            style: Theme.of(context).textTheme.titleLarge),
-                        AutoSizeText("${df2.format(currentDateOS)} (ст. ст.)",
-                            textAlign: TextAlign.left,
-                            maxLines: 1,
-                            minFontSize: 5,
-                            style: Theme.of(context).textTheme.subtitle1),
-                      ]))
+                    AutoSizeText(df1.format(currentDate).capitalize(),
+                        textAlign: TextAlign.left,
+                        maxLines: 1,
+                        minFontSize: 5,
+                        style: Theme.of(context).textTheme.titleLarge),
+                    AutoSizeText("${df2.format(currentDateOS)} (ст. ст.)",
+                        textAlign: TextAlign.left,
+                        maxLines: 1,
+                        minFontSize: 5,
+                        style: Theme.of(context).textTheme.titleMedium),
+                  ]))
             ]),
         onTap: () {
-
-          /*
           var dialog = AlertDialog(
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -113,9 +111,6 @@ class _DayViewState extends State<DayView> {
               DateChangedNotification(newDate).dispatch(context);
             }
           });
-
-           */
-
         });
 
     final key = "${currentDate.toIso8601String()} - ${ConfigParam.fontSize.val()}";

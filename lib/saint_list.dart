@@ -41,10 +41,10 @@ class SaintListState extends State<SaintList> {
 
       name = RichText(
           text: TextSpan(text: '', style: style, children: [
-            TextSpan(text: format.format(dt), style: style.copyWith(color: Colors.red)),
-            const TextSpan(text: '   '),
-            TextSpan(text: s.name)
-          ]));
+        TextSpan(text: format.format(dt), style: style.copyWith(color: Colors.red)),
+        const TextSpan(text: '   '),
+        TextSpan(text: s.name)
+      ]));
     } else {
       name = Text(s.name, style: style);
     }
@@ -59,10 +59,10 @@ class SaintListState extends State<SaintList> {
               children: <Widget>[
                 s.has_icon
                     ? Image.asset(
-                  'assets/icons/${s.id}.jpg',
-                  width: 100.0,
-                  height: 100.0,
-                )
+                        'assets/icons/${s.id}.jpg',
+                        width: 100.0,
+                        height: 100.0,
+                      )
                     : Container(),
                 Expanded(child: Container(padding: const EdgeInsets.only(left: 10.0), child: name))
               ],
@@ -98,7 +98,7 @@ class SaintListState extends State<SaintList> {
           return CustomScrollView(slivers: [
             SliverList(
                 delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) => buildRow(snapshot.data![index], index),
+                    (BuildContext context, int index) => buildRow(snapshot.data![index], index),
                     childCount: min(snapshot.data!.length, 100)))
           ]);
         });
